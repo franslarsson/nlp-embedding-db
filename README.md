@@ -25,5 +25,7 @@ options have so far been considered and compared.
 The main result is presented in the figure below. Please refer to the notebook  a more detailed description regarding 
 how the databases were evaluated.
 
+![alt text](./img/comparison_speed.png)
+
 ## Reference
 [1] word2vec. https://code.google.com/archive/p/word2vec/
