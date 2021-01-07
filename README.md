@@ -22,7 +22,7 @@ options have so far been considered and compared.
 * Read in the whole binary file and perform the task in memory
 
 ## Results
-The main result is presented in the figure below. Please refer to the notebook  a more detailed description regarding 
+The main result is presented in the figure below. Please refer to [this](./performance_comparison.ipynb) notebook for a more detailed description regarding 
 how the databases were evaluated.
 
 ![alt text](./img/comparison_speed.png)
