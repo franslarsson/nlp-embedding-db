@@ -10,6 +10,16 @@ from tqdm import tqdm
 
 
 def chunks(lst, n):
+    """Chunks.
+
+    Parameters
+    ----------
+    lst : list or dict
+        The list or dictionary to return chunks from.
+    n : int
+        The number of records in each chunk.
+
+    """
     if isinstance(lst, list):
         for i in tqdm(range(0, len(lst), n)):
             yield lst[i:i + n]
