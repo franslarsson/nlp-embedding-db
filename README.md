@@ -6,8 +6,7 @@ might not fit into memory. The purpose of this project is therefore to compare d
 embeddings and compare the performance of these options in terms of speed.
 
 ## Word embeddings
-The word embedding used so far is the pre-trained Google News word2vec model [[1](https://code.google.com/archive/p/word2vec/)] which was trained on about 100 billion
-words and consists of 300 dimensional vectors for 3 million words. Please refer to [[1](https://code.google.com/archive/p/word2vec/)] for a more detailed description
+The word embedding used so far is the pre-trained Google News word2vec model [[1](https://code.google.com/archive/p/word2vec/)] which is released under an Apache 2.0 licence. Please refer to https://code.google.com/archive/p/word2vec/ for a more detailed description 
 of the word2vec model. Although this pre-trained model can fit in memory, I think it provides a good start when
 exploring and comparing database options for word embeddings.
 
