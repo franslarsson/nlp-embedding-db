@@ -13,8 +13,11 @@ def create_table(conf, db_type):
     embedding = KeyedVectors.load_word2vec_format(data_path, binary=True)
     db_name = conf['name']
     table_name = conf['data']['google_news_vec']['name']
+
     if db_type == 'mongodb':
-        with WordEmbeddingMongoDB(db_name, conf['host'], conf['port']) as db:
+        host = conf['mongodb']['host']
+        port = conf['mongodb']['port']
+        with WordEmbeddingMongoDB(db_name, host, port) as db:
             print("Start writing data to DB...")
             db.write_embeddings(embedding, table_name, chunk_size=100000)
     elif db_type == 'sqlite':
