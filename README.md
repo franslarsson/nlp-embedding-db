@@ -6,8 +6,8 @@ might not fit into memory. The purpose of this project is therefore to compare d
 embeddings and compare the performance of these options in terms of speed.
 
 ## Word embeddings
-The word embedding used so far is the pre-trained Google News word2vec model [1] which was trained on about 100 billion
-words and consists of 300 dimensional vectors for 3 million words. Please refer to [1] for a more detailed description
+The word embedding used so far is the pre-trained Google News word2vec model [[1](https://code.google.com/archive/p/word2vec/)] which was trained on about 100 billion
+words and consists of 300 dimensional vectors for 3 million words. Please refer to [[1](https://code.google.com/archive/p/word2vec/)] for a more detailed description
 of the word2vec model. Although this pre-trained model can fit in memory, I think it provides a good start when
 exploring and comparing database options for word embeddings.
 
@@ -77,7 +77,7 @@ with WordEmbeddingMongoDB(db_name, host, port) as db:
 
 __Example SQLite__
 ```python
-with WordEmbeddingSQLiteDB(f"{conf['sqlite']['path']}/{DB_NAME}.db") as db:
+with WordEmbeddingSQLiteDB(f"{conf['sqlite']['path']}/{db_name}.db") as db:
     embeddings = db.read_embeddings(words, table_name)
 ```
 
