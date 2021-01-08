@@ -69,7 +69,7 @@ When the database has been created it is possible to run the experiment by runni
 in `database.py` provide the method `read_embeddings` to make it easy to read the word embeddings
 from each of the databases.
 
-__Example Mongodb__
+__Example MongoDB__
 ```python
 with WordEmbeddingMongoDB(db_name, host, port) as db:
     embeddings = db.read_embeddings(words, table_name)
