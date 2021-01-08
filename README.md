@@ -65,7 +65,10 @@ If db_type='sqlite' the database file will be created in the path given in `conf
 
 ### Reading from database
 When the database has been created it is possible to run the experiment by running this
-[notebook](./performance_comparison.ipynb). The two classes `WordEmbeddingSQLiteDB` and `WordEmbeddingMongoDB`
+[notebook](./performance_comparison.ipynb). Note that before the experiment was runned the column word was used 
+as an index. See the examples in the notebook [create_index.ipynb](./create_index.ipynb).
+
+The two classes `WordEmbeddingSQLiteDB` and `WordEmbeddingMongoDB`
 in `database.py` provide the method `read_embeddings` to make it easy to read the word embeddings
 from each of the databases.
 
