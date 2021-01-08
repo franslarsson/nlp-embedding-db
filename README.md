@@ -27,5 +27,59 @@ how the databases were evaluated.
 
 ![alt text](./img/comparison_speed.png)
 
+## Reproduce results
+Follow these steps in order to reproduce the results:
+
+### Setup
+1. Make sure that all the required python packages in `requirement.txt` is installed.
+2. Download the pre-trained word2vec model `GoogleNews-vectors-negative300.bin.gz`
+   from https://code.google.com/archive/p/word2vec/.
+3. Add a configuration file `conf.yaml` to the main folder with the following information:
+```yaml
+name: "<name-of-db>"
+mongodb:
+  host: "<hostname-mongodb>"
+  port: <port-number-mongodb>
+sqlite:
+  path: "<path-to-sqlite-db>"
+data:
+  google_new_vec:
+    path: "<path-to-binary-file>"
+    name: "<name-of-table-for-storing-word-embedding>"
+```
+
+### Create database
+To create a database with the word embedding run the script `google_news_vector.py`
+by running
+```
+python google_news_vecs.py '<db_type>'
+```
+Where `<db_type>` is the database that should be used. Currently 'mongodb' and 'sqlite' are supported.
+The script will then write all the content from the binary file to the database using the configuration
+information in `conf.yaml`.
+
+If db_type='mongodb' the server needs to be up and running before
+running the script.
+
+If db_type='sqlite' the database file will be created in the path given in `conf.yaml`.
+
+### Reading from database
+When the database has been created it is possible to run the experiment by running this
+[notebook](./performance_comparison.ipynb). The two classes `WordEmbeddingSQLiteDB` and `WordEmbeddingMongoDB`
+in `database.py` provide the method `read_embeddings` to make it easy to read the word embeddings
+from each of the databases.
+
+__Example Mongodb__
+```python
+with WordEmbeddingMongoDB(db_name, host, port) as db:
+    embeddings = db.read_embeddings(words, table_name)
+```
+
+__Example SQLite__
+```python
+with WordEmbeddingSQLiteDB(f"{conf['sqlite']['path']}/{DB_NAME}.db") as db:
+    embeddings = db.read_embeddings(words, table_name)
+```
+
 ## Reference
 [1] word2vec. https://code.google.com/archive/p/word2vec/
