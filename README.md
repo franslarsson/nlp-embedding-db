@@ -77,7 +77,7 @@ with WordEmbeddingMongoDB(db_name, host, port) as db:
 
 __Example SQLite__
 ```python
-with WordEmbeddingSQLiteDB(f"{conf['sqlite']['path']}/{DB_NAME}.db") as db:
+with WordEmbeddingSQLiteDB(f"{conf['sqlite']['path']}/{db_name}.db") as db:
     embeddings = db.read_embeddings(words, table_name)
 ```
 
